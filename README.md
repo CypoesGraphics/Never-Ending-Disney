@@ -1,11 +1,11 @@
-# Never Ending Netflix
+# Never Ending Disney+
 
-[NEN](https://chrome.google.com/webstore/detail/hdadmgabliibighlbejhlglfjgplfmhb) is a chrome extension that improves the Netflix experience for power users. It's features include:
+[DEN](https://chrome.google.com/webstore/detail/hdadmgabliibighlbejhlglfjgplfmhb) is a chrome extension that improves the Disney+ experience for power users. It's features include:
 
 * Automatically skip intros
 * Automatically play the next episode
 * Skip the popups that ask if you're "Still here?" after 8 hours
-* Search *all* of Netflix's genre's
+* Search *all* of Disney+'s genre's
 
 ## Options
 

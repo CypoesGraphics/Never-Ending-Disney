@@ -12,32 +12,37 @@ function _findPropertyNameByRegex(o, r) {
 
 function enableAutoPlayNext(selectors) {
   /*Pulls all classes that start with "Watch Next" */
-  selectors.push(".WatchNext-autoplay"); // Unknown if other international have localized class names
-  selectors.push('.WatchNext-still-hover-container');
-  selectors.push('[aria-label^="Next episode"]');
-  selectors.push('[data-uia^="next-episode-seamless-button"]');
-  selectors.push('.draining');
+  // selectors.push(".WatchNext-autoplay"); // Unknown if other international have localized class names
+  // selectors.push('.WatchNext-still-hover-container');
+  // selectors.push('[data-uia^="next-episode-seamless-button"]');
+  // selectors.push('.draining');
+  selectors.push('.b59fgs0 button'); // German version will have this text, most reliable
+  selectors.push('.skip__button'); // German version will have this text, most reliable
+  // selectors.push('[aria-label="NÄCHSTE FOLGE"]'); // German version will have this text, most reliable
 }
 
 function enableSkipTitleSequence(selectors) {
   /*Skip title sequence*/
-  selectors.push('[aria-label="Skip Intro"]'); // American version will have this text, most reliable
-  selectors.push('[data-uia="player-skip-intro"]'); // American version will have this text, most reliable
-  selectors.push('.skip-credits > a'); // Also include first descendant of skip-credits, in case it's international?
-  selectors.push('.watch-video--skip-content > button'); // Also include first descendant of skip-credits, in case it's international?
+  // selectors.push('[aria-label="Skip Intro"]'); // American version will have this text, most reliable
+  // selectors.push('[data-uia="player-skip-intro"]'); // American version will have this text, most reliable
+  // selectors.push('.skip-credits > a'); // Also include first descendant of skip-intro, in case it's international?
+  // selectors.push('.watch-video--skip-content > button'); // Also include first descendant of skip-intro, in case it's international?
+  selectors.push('[aria-label="INTRO ÜBERSPRINGEN"]'); // German version will have this text, most reliable
+  selectors.push('.skip__button'); // Also include first descendant of skip-intro, in case it's international?
+  selectors.push('.overlay__skip > button'); // Also include first descendant of skip-intro, in case it's international?
 }
 
 function enableSkipStillHere(selectors) {
-  selectors.push('[data-uia="interrupt-autoplay-continue"]');
+  // selectors.push('[data-uia="interrupt-autoplay-continue"]');
   selectors.push('.interrupter-actions > .nf-icon-button:first-child');
   selectors.push('[aria-label^="Continue Playing"]');
 }
 
-function enableWatchCredits(selectors) {
-  selectors.push('[aria-label^="Watch credits"]');
-  selectors.push('[data-uia^="watch-credits-seamless-button"]');
-}
+// function enableWatchCredits(selectors) {
+//   selectors.push('[aria-label^="Watch credits"]');
+//   selectors.push('[data-uia^="watch-credits-seamless-button"]');
+// }
 
-function enableDontSkipEndShowCredits(selectors) {
-  selectors.push('.watch-video--player-view-minimized > div');
-}
+// function enableDontSkipEndShowCredits(selectors) {
+//   selectors.push('.watch-video--player-view-minimized > div');
+// }
