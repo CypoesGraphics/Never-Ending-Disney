@@ -29,6 +29,29 @@ function dispatchEventToBody(eventType) {
   document.dispatchEvent(event);
 }
 
+function applyFunctionAndRetry(func) {
+  try {
+    func();
+  } catch (e) {
+    console.error(e);
+  }
+  // Try clicking play twice a second for 2 seconds, in case it pauses weirdly
+  let interval = setInterval(func, 500);
+  setTimeout(_ => {
+    clearInterval(interval);
+    // clear interval after 2s
+  }, 2000);
+}
+
+function pressFullscreenButton() {
+  let fullscreen = document.querySelector("toggle-fullscreen-button").shadowRoot.querySelector("button.fullscreen-icon");
+  if (fullscreen) {
+    console.log(fullscreen)
+    console.log("DEN - Maximize");
+      fullscreen.click()
+    }
+}
+
 function startMonitoringForSelectors(selectors, numTries) {
   if (!selectors.length) {
     return;
@@ -49,10 +72,12 @@ function startMonitoringForSelectors(selectors, numTries) {
         elem.dispatchEvent(new PointerEvent('click'));
         // Send an event that tries to trigger the react version of the action
         dispatchEventToBody('nextEpEvent');
+        applyFunctionAndRetry(pressFullscreenButton);
       } else if (elem.classList.contains("overlay__skip")) {
         console.log("DEN - OVERLAY SKIP " + elem.classList)
         doClick(elem).then(_ => {
           doGetPlayButton();
+          pressFullscreenButton();
         });
 
         function doClick(n) {
